@@ -8,6 +8,7 @@
     function Controller($window, UserService, FlashService) {
         var vm = this;
         vm.user = null;
+        vm.saveInternships = saveInternships;
 
         initController();
 
@@ -15,7 +16,21 @@
             //get current user
             UserService.GetCurrent().then(function(user) {
                 vm.user = user;
+                user.internships = {};
+                user.internships.test = {};
+                user.internships.test.name = 'Googel';
+                user.internships.test.recruiter = 'Dat Boi';
             });
+        }
+
+        function saveInternships() {
+        	UserService.Update(vm.user)
+        		.then(function() {
+        			FlashService.Success('Internships updated');
+        		})
+        		.catch(function (error) {
+        			FlashService.Error(error);
+        		});
         }
     }
 })();

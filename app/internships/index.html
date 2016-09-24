@@ -1,1 +1,26 @@
-<h1>Hello {{vm.user.firstName}}, here's ur internships wao</h1>
+<h1>My internships</h1>
+<div class="form-container">
+	<form method="post">
+		<div ng-repeat="internship in vm.user.internships">
+			<div class="form-group">
+				<label for="name">Internship Name</label>
+				<input type="text" id={{internship}}+"name" class="form-control" ng-model=internship.name>
+			</div>
+			<div class="form-group">
+				<label for="recruiter">Recruiter</label>
+				<input type="text" id={{internship}}+"recruiter" class="form-control" ng-model=internship.recruiter>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="name">Internship Name</label>
+			<input type="text" id="name" class="form-control" ng-model="vm.user.internships.test.name">
+		</div>
+		<div class="form-group">
+			<label for="recruiter">Recruiter</label>
+			<input type="text" id="recruiter" class="form-control" ng-model="vm.user.internships.test.recruiter">
+		</div>
+		<div class="form-group">
+            <button class="btn btn-primary" ng-click="vm.saveInternships()">Save</button>
+        </div>
+    </form>
+</div>
