@@ -43,7 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="internship in vm.user.internships | filter:{status:'Offered'}">
+                <tr ng-repeat="internship in vm.user.internships" ng-if="internship.status == 'Offered'">
                     <td>{{internship.companyName}}</td>
                     <td>{{internship.role}}</td>
                     <td>{{internship.recruiter}}</td>
