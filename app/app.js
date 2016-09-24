@@ -2,7 +2,8 @@
 	'use strict';
 
 	angular
-		.module('app', ['ui.router'])
+		.module('app', ['ui.router', 'ngMaterial'])
+
 		.config(config)
 		.run(run);
 
@@ -31,6 +32,13 @@
 				controller: 'Internships.IndexController',
 				controllerAs : 'vm',
 				data: { activeTab: 'internships' }
+			})
+			.state('offers', {
+				url: '/offers',
+				templateUrl: 'offers/index.html',
+				controller: 'Offers.IndexController',
+				controllerAs : 'vm',
+				data: { activeTab: 'offers' }
 			});
 	}
 	function run($http, $rootScope, $window) {

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
 	<meta charset="utf-8" />
 	<title>InternGrindr Login</title>
 
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
     <link href="app-content/app.css" rel="stylesheet" />
 
 </head>
@@ -21,17 +23,51 @@
 			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
 		</div>
 		</header>
+=======
+    <head>
+    	<meta charset="utf-8" />
+    	<title>InternGrindr Login</title>
+
+    	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="app-content/app.css" rel="stylesheet" />
+
+    </head>
+    <body class="container">
+    	<!-- header -->
+    	<header>
+    		<ul class="nav nav-tabs">
+    			<li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+    			<li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+    			<li ng-class="{active: activeTab === 'internships'}"><a ui-sref="internships">Internships</a></li>
+    			<li ng-class="{active: activeTab === 'offers'}"><a ui-sref="offers">Offers</a></li>
+            </ul>
+
+    		<div class="flash-message" ng-if="flash">
+    			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+    		</div>
+    	</header>
+>>>>>>> 94d05aac5f116a02a952b7ba08aafc561007739f
 
 		<!-- main -->
 		<main ui-view></main>
 
 		<!-- footer -->
-		<footer></footer>
+		<footer><button type="button" class="btn btn-danger">Log out</button></footer>
 
 		<!-- external scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <!-- Angular Material Dependencies -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <!-- Ui router -->
+
+       	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+
+        <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
     	<!-- application scripts -->
     	<script src="app.js"></script>
@@ -41,5 +77,5 @@
     	<script src="account/index.controller.js"></script>
     	<script src="internships/index.controller.js"></script>
     </body>
-	</html>
+</html>
 
