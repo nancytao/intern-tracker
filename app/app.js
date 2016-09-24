@@ -3,7 +3,6 @@
 
 	angular
 		.module('app', ['ui.router', 'ngMaterial'])
-
 		.config(config)
 		.run(run);
 
