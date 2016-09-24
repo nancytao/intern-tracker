@@ -42,48 +42,6 @@
         		.catch(function (error) {
         			FlashService.Error(error);
         		});
-
-        function newInternship(internship) {
-            alert("Sorry! You'll need to populate " + internship);
-        }
-
-        function querySearch(query) {
-            var results = query ? vm.internships.filter(createFilterFor(query)) : vm.internships;
-            if (vm.simulateQuery) {
-                deferred = $q.defer();
-                $timeout(function() { deferred.resolve( results ); },
-                    Math.random() * 1000, false);
-                return deferred.promise;
-            } else {
-                return results;
-            }
-        }
-
-        function searchTextChange(text) {
-            //$log.info('Text changed to ' + text);
-        }
-
-        function selectedItemChange(item) {
-            //$log.info('Item changed to ' + JSON.stringify(item));
-        }
-
-        function loadAll() {
-            var allInternships = 'Google, Microsoft, Amazon, Palantir, Fitbit, Dropbox, Quora, Pinterest';
-            return allInternships.split(/, +/g).map( function (internship) {
-                return {
-                    value : internship.toLowerCase(),
-                    display : internship
-                };
-            });
-        }
-
-        function createFilterFor(query) {
-            var lowercaseQuery = angular.lowercase(query);
-            return function filterFn(internship) {
-                return (internship.value.indexOf(lowercaseQuery) === 0);
-            };
-
-
         }
     }
 })();
