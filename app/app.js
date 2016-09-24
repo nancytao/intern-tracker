@@ -39,6 +39,13 @@
 				controller: 'Offers.IndexController',
 				controllerAs : 'vm',
 				data: { activeTab: 'offers' }
+			})
+			.state('discover', {
+				url: '/discover',
+				templateUrl: 'discover/index.html',
+				controller: 'Discover.IndexController',
+				controllerAs : 'vm',
+				data: { activeTab: 'discover' }
 			});
 	}
 	function run($http, $rootScope, $window) {
