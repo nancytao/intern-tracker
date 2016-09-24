@@ -12,6 +12,7 @@
         initController();
 
         function initController() {
+            console.log("d");
             UserService.GetCurrent().then(function(user) {
                 vm.user = user;
                 if (!user.offers) {
@@ -22,6 +23,7 @@
         }
 
         function addOffer() {
+            console.log("e");
             vm.user.offers[vm.user.offerID] = {};
             vm.user.offers[vm.user.offerID].id = vm.user.offerID;
             vm.user.offers[vm.user.offerID].company = null;

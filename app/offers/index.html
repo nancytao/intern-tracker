@@ -34,33 +34,65 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Facebook</td>
-            <td>EP Intern</td>
-            <td>30</td>
-            <td>Boston, MA</td>
-            <td>Sep 30 2016</td>
-        </tr>
-        <tr>
-            <td>Goldman Sachs</td>
-            <td>Business Software Engineer</td>
-            <td>30</td>
-            <td>Salt Lake City, UT</td>
-            <td>Sep 30 2016</td>
-        </tr>
-        <tr>
-            <td>Bloomberg</td>
-            <td>SWE Intern</td>
-            <td>30</td>
-            <td>New York, NY</td>
-            <td>Nov 01 2016</td>
-        </tr>
-        <!-- <tr ng-repeat="offer in offers">
+        <tr ng-repeat="offer in vm.user.offers">
             <td>{{offer.company}}</td>
             <td>{{offer.role}}</td>
             <td>{{offer.payrate}}</td>
             <td>{{offer.location}}</td>
             <td>{{offer.replyby}}</td>
-        </tr> -->
+        </tr>
     </tbody>
 </table>
+
+<div class="form-container">
+    <form method="post">
+        <!-- <div ng-repeat="offer in vm.user.offers"> -->
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id={{offer.id}}+"company" class="form-control" ng-model=offer["company"]>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id={{offer.id}}+"location" class="form-control" ng-model=offer["location"]>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" ng-click="vm.deleteOffer(offer.id)">Delete Offer</button>
+            </div>
+        <!-- </div> -->
+        <div class-"form-group">
+            <button class="btn btn-primary" ng-click="vm.addOffer()">
+            Add Offer</button>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="vm.saveOffers()">Save</button>
+        </div>
+            <!-- <button data-toggle="modal" data-target="#offermodal" type="button" class="btn btn-default">Edit</button>
+            <div class="form-group">
+                <button class="btn btn-danger" ng-click="vm.deleteOffer(offer.id)">Delete Offer</button>
+            </div>
+            <div id="offermodal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="company">Internship Company</label>
+                                <input type="text" id={{offer.id}}+"company" class="form-control" ng-model=offer["company"]>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id={{offer.id}}+"location" class="form-control" ng-model=offer["location"]>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class-"form-group">
+            <button class="btn btn-primary" ng-click="vm.addOffer()">
+            Add Offer</button>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="vm.saveOffers()">Save</button>
+        </div> -->
+    </form>
+</div>
