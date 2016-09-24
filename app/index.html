@@ -1,29 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-<head>
-	<meta charset="utf-8" />
-	<title>InternGrindr Login</title>
-
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
-    <link href="app-content/app.css" rel="stylesheet" />
-
-</head>
-<body class="container">
-	<!-- header -->
-	<header>
-		<ul class="nav nav-tabs">
-			<li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-			<li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-			<li ng-class="{active: activeTab === 'internships'}"><a ui-sref="internships">Internships</a></li>
-			<li><a href="/login" target="_self">Logout</a></li>
-		</ul>
-		<div class="flash-message" ng-if="flash">
-			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
-		</div>
-		</header>
-=======
     <head>
     	<meta charset="utf-8" />
     	<title>InternGrindr Login</title>
@@ -46,7 +22,6 @@
     			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
     		</div>
     	</header>
->>>>>>> 94d05aac5f116a02a952b7ba08aafc561007739f
 
 		<!-- main -->
 		<main ui-view></main>
