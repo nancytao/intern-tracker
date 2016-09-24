@@ -1,5 +1,5 @@
 
-<h1>My internships</h1>
+<h1>My Internships</h1>
 <div class="form-container">
 	<form method="post">
 		<div ng-repeat="internship in vm.user.internships" id="{{internship.id}}modal" class="modal fade" tabindex="-1" role="dialog">
@@ -53,6 +53,6 @@
 			<button class="btn btn-primary" data-toggle="modal" data-target="#{{vm.user.internshipCount - 1}}modal" ng-click="vm.addInternship()" >
 			Add Internship</button>
 		</div>
-		
+
     </form>
 </div>

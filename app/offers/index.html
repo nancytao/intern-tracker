@@ -1,98 +1,57 @@
-<h1>My Offers</h1>
 
-<br />
-<button class="btn btn-primary">Add Offer</button>
-<br />
-<br />
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Compare Offers
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-        <li data-toggle="modal" data-target="#mapmodal"><a href="">Location</a></li>
-        <li><a href="">Pay Rate (adjusted)</a></li>
-    </ul>
-</div>
-<br />
-
-<div id="mapmodal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <img src="http://maps.googleapis.com/maps/api/staticmap?autoscale=2&size=800x600&maptype=roadmap&key=AIzaSyDodM8wUpuA2CAd6Fa1CEC0Drgv1vxsztM&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:F%7CBoston,+MA&markers=size:mid%7Ccolor:0xff0000%7Clabel:G%7CSalt+Lake+City,+UT&markers=size:mid%7Ccolor:0xff0000%7Clabel:B%7CNew+York,+NY" alt="Google Map of Internship Locations" class="img-responsive">
-            </div>
-        </div>
-    </div>
-</div>
-<table ng-app="app" ng-controller="Offers.IndexController" class="table table-hover">
-    <thead>
-        <tr>
-            <th>Company</th>
-            <th>Role</th>
-            <th>Pay Rate (Hourly)</th>
-            <th>Location</th>
-            <th>Reply By Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="offer in vm.user.offers">
-            <td>{{offer.company}}</td>
-            <td>{{offer.role}}</td>
-            <td>{{offer.payrate}}</td>
-            <td>{{offer.location}}</td>
-            <td>{{offer.replyby}}</td>
-        </tr>
-    </tbody>
-</table>
-
+<h1>Review Offers</h1>
 <div class="form-container">
     <form method="post">
-        <!-- <div ng-repeat="offer in vm.user.offers"> -->
-            <div class="form-group">
-                <label for="company">Company Name</label>
-                <input type="text" id={{offer.id}}+"company" class="form-control" ng-model=offer["company"]>
-            </div>
-            <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" id={{offer.id}}+"location" class="form-control" ng-model=offer["location"]>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-danger" ng-click="vm.deleteOffer(offer.id)">Delete Offer</button>
-            </div>
-        <!-- </div> -->
-        <div class-"form-group">
-            <button class="btn btn-primary" ng-click="vm.addOffer()">
-            Add Offer</button>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.saveOffers()">Save</button>
-        </div>
-            <!-- <button data-toggle="modal" data-target="#offermodal" type="button" class="btn btn-default">Edit</button>
-            <div class="form-group">
-                <button class="btn btn-danger" ng-click="vm.deleteOffer(offer.id)">Delete Offer</button>
-            </div>
-            <div id="offermodal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="company">Internship Company</label>
-                                <input type="text" id={{offer.id}}+"company" class="form-control" ng-model=offer["company"]>
-                            </div>
-                            <div class="form-group">
-                                <label for="location">Location</label>
-                                <input type="text" id={{offer.id}}+"location" class="form-control" ng-model=offer["location"]>
-                            </div>
+        <div ng-repeat="offer in vm.user.offers" id="{{offer.id}}modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id={{offer.id}}+"company" class="form-control" ng-model=offer["company"]>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" id={{offer.id}}+"role" class="form-control" ng-model=offer["role"]>
+                        </div>
+                        <div class="form-group">
+                            <label for="payrate">Pay Rate</label>
+                            <input type="text" id={{offer.id}}+"payrate" class="form-control" ng-model=offer["payrate"]>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id={{offer.id}}+"location" class="form-control" ng-model=offer["location"]>
+                        </div>
+                        <div class="form-group">
+                            <label for="replyby">Reply By Date</label>
+                            <input type="date" id={{offer.id}}+"replyby" class="form-control" ng-model=offer["replyby"]>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" ng-click="vm.saveOffers()" data-dismiss="modal">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class-"form-group">
-            <button class="btn btn-primary" ng-click="vm.addOffer()">
-            Add Offer</button>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.saveOffers()">Save</button>
-        </div> -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Role</th>
+                    <th>Pay Rate (Hourly)</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="internship in vm.user.internships | filter:{status:'Offered'}">
+                    <td>{{internship.companyName}}</td>
+                    <td>{{internship.role}}</td>
+                    <td>{{internship.recruiter}}</td>
+                    <td>{{internship.location}}</td>
+                    <td><button data-toggle="modal" data-target="#{{internship.id}}modal" type="button" class="btn btn-default">Edit</button></td>
+                    <td><button class="btn btn-danger" ng-click="vm.rejectOffer(internship.id)">Reject Offer</button></td>
+                </tr>
+            </tbody>
+        </table>
     </form>
 </div>
