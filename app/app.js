@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('app', ['ui.router', 'ngMaterial'])
+		.module('app', ['ui.router', 'ngMaterial', 'ui.bootstrap'])
 
 		.config(config)
 		.run(run);
