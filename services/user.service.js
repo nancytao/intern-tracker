@@ -118,8 +118,9 @@ function update(_id, userParam) {
             firstName: userParam.firstName,
             lastName: userParam.lastName,
             username: userParam.username,
+            internships: userParam.internships,
+            internshipCount: userParam.internshipCount,
         };
-
         // update password if it was entered
         if (userParam.password) {
             set.hash = bcrypt.hashSync(userParam.password, 10);
