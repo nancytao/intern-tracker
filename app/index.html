@@ -5,6 +5,7 @@
     	<title>InternGrindr Login</title>
 
     	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css" rel="stylesheet" />
         <link href="app-content/app.css" rel="stylesheet" />
 
     </head>
@@ -16,13 +17,17 @@
     			<li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
     			<li ng-class="{active: activeTab === 'internships'}"><a ui-sref="internships">Internships</a></li>
     			<li ng-class="{active: activeTab === 'offers'}"><a ui-sref="offers">Offers</a></li>
+                <li ng-class="{active: activeTab === 'discover'}"><a ui-sref="discover">Discover</a></li>
             </ul>
 
     		<div class="flash-message" ng-if="flash">
     			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
     		</div>
     	</header>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f04463732520ae83f84417291d9f2518eaa27a4
 		<!-- main -->
 		<main ui-view></main>
 
@@ -53,6 +58,7 @@
     	<script src="account/index.controller.js"></script>
     	<script src="internships/index.controller.js"></script>
         <script src="offers/index.controller.js"></script>
+        <script src="discover/index.controller.js"></script>
     </body>
 </html>
 
