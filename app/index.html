@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<title>InternGrindr Login</title>
+    <head>
+    	<meta charset="utf-8" />
+    	<title>InternGrindr Login</title>
 
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="app-content/app.css" rel="stylesheet" />
+    	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="app-content/app.css" rel="stylesheet" />
 
-</head>
-<body class="container">
-	<!-- header -->
-	<header>
-		<ul class="nav nav-tabs">
-			<li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-			<li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-			<li ng-class="{active: activeTab === 'internships'}"><a ui-sref="internships">Internships</a></li>
-			<li><a href="/login" target="_self">Logout</a></li>
-		</ul>
-		<div class="flash-message" ng-if="flash">
-			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
-		</div>
-		</header>
+    </head>
+    <body class="container">
+    	<!-- header -->
+    	<header>
+    		<ul class="nav nav-tabs">
+    			<li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+    			<li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+    			<li ng-class="{active: activeTab === 'internships'}"><a ui-sref="internships">Internships</a></li>
+    			<li ng-class="{active: activeTab === 'offers'}"><a ui-sref="offers">Offers</a></li>
+            </ul>
+
+    		<div class="flash-message" ng-if="flash">
+    			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+    		</div>
+    	</header>
 
 		<!-- main -->
 		<main ui-view></main>
 
 		<!-- footer -->
-		<footer></footer>
+		<footer><button type="button" class="btn btn-danger">Log out</button></footer>
 
 		<!-- external scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -41,5 +42,5 @@
     	<script src="account/index.controller.js"></script>
     	<script src="internships/index.controller.js"></script>
     </body>
-	</html>
+</html>
 

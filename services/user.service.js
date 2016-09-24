@@ -88,18 +88,18 @@ function create(userParam) {
 
 function update(_id, userParam) {
     var deferred = Q.defer();
- 
+
     // validation
     db.users.findById(_id, function (err, user) {
         if (err) deferred.reject(err);
- 
+
         if (user.username !== userParam.username) {
             // username has changed so check if the new username is already taken
             db.users.findOne(
                 { username: userParam.username },
                 function (err, user) {
                     if (err) deferred.reject(err);
- 
+
                     if (user) {
                         // username already exists
                         deferred.reject('Username "' + req.body.username + '" is already taken')
@@ -111,7 +111,7 @@ function update(_id, userParam) {
             updateUser();
         }
     });
- 
+
     function updateUser() {
         // fields to update
         var set = {
@@ -119,25 +119,25 @@ function update(_id, userParam) {
             lastName: userParam.lastName,
             username: userParam.username,
         };
- 
+
         // update password if it was entered
         if (userParam.password) {
             set.hash = bcrypt.hashSync(userParam.password, 10);
         }
- 
+
         db.users.update(
             { _id: mongo.helper.toObjectID(_id) },
             { $set: set },
             function (err, doc) {
                 if (err) deferred.reject(err);
- 
+
                 deferred.resolve();
             });
     }
- 
+
     return deferred.promise;
 }
- 
+
 // prefixed function name with underscore because 'delete' is a reserved word in javascript
 function _delete(_id) {
     var deferred = Q.defer();
@@ -145,9 +145,9 @@ function _delete(_id) {
         { _id: mongo.helper.toObjectID(_id) },
         function (err) {
             if (err) deferred.reject(err);
- 
+
             deferred.resolve();
         });
- 
+
     return deferred.promise;
 }
