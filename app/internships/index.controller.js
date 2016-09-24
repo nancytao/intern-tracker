@@ -31,6 +31,7 @@
         	vm.user.internships[vm.user.internshipCount].role = null;
         	vm.user.internships[vm.user.internshipCount].recruiter = null;
         	vm.user.internships[vm.user.internshipCount].location = null;
+        	vm.user.internships[vm.user.internshipCount].status = 'Pending';
         	vm.user.internshipCount++;
         	console.log(vm.user.internships);
         }

@@ -23,6 +23,12 @@
 							<input type="text" id={{internship.id}}+"location" class="form-control" ng-model=internship["location"]>
 						</div>
 						<div class="form-group">
+							<label for="status">Status</label>
+							<select ng-model=internship["status"]>
+							<option id={{internship.id}}+"status"  ng-repeat="x in ['Offered', 'Pending', 'Denied']">{{x}}</option>
+							</select>
+						</div>
+						<div class="form-group">
 	    					<button class="btn btn-primary" ng-click="vm.saveInternships()" data-dismiss="modal">Save</button>
 						</div>
 	    			</div>
@@ -36,6 +42,7 @@
 					<th>Role</th>
 					<th>Recruiter</th>
 					<th>Location</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,6 +51,7 @@
 					<td>{{internship.role}}</td>
 					<td>{{internship.recruiter}}</td>
 					<td>{{internship.location}}</td>
+					<td>{{internship.status}}</td>
 					<td><button data-toggle="modal" data-target="#{{internship.id}}modal" type="button" class="btn btn-default">Edit</button></td>
 					<td><button class="btn btn-danger" ng-click="vm.deleteInternship(internship.id)">Delete Internship</button></td>
 				</tr>
