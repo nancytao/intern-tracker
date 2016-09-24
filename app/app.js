@@ -32,6 +32,13 @@
 				controller: 'Internships.IndexController',
 				controllerAs : 'vm',
 				data: { activeTab: 'internships' }
+			})
+			.state('offers', {
+				url: '/offers',
+				templateUrl: 'offers/index.html',
+				controller: 'Offers.IndexController',
+				controllerAs : 'vm',
+				data: { activeTab: 'offers' }
 			});
 	}
 	function run($http, $rootScope, $window) {
