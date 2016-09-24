@@ -24,14 +24,16 @@
     			<div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
     		</div>
     	</header>
+
 		<!-- main -->
 		<main ui-view></main>
 
 		<!-- footer -->
-		<footer><button type="button" class="btn btn-danger">Log out</button></footer>
+		<footer><a href="/login" target="_self"><button type="button" class="btn btn-danger">Log out</button></a></footer>
 
 		<!-- external scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
         <!-- Angular Material Dependencies -->
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -55,8 +57,8 @@
     	<script src="account/index.controller.js"></script>
     	<script src="internships/index.controller.js"></script>
         <script src="internships/modal.controller.js"></script>
+        <script src="offers/index.controller.js"></script>
         <script src="discover/index.controller.js"></script>
-
     </body>
 </html>
 
