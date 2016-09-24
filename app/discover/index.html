@@ -1,0 +1,20 @@
+<div ng-controller="Discover.IndexController as ctrl" ng-cloak>
+  <md-toolbar class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+      <span>Select an Internship</span>
+    </h2>
+  </md-toolbar>
+
+  <md-content>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="item in vm.internships">
+        <div class="md-list-item-text">
+          <h3>{{item.value}}</h3>
+          <h4>{{item.display}}</h4>
+        </div>
+        <md-button class="md-secondary">Apply</md-button>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
