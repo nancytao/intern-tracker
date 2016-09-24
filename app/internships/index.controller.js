@@ -27,9 +27,12 @@
         function addInternship() {
         	vm.user.internships[vm.user.internshipCount] = {}
         	vm.user.internships[vm.user.internshipCount].id = vm.user.internshipCount;
-        	vm.user.internships[vm.user.internshipCount].name = null;
+        	vm.user.internships[vm.user.internshipCount].companyName = null;
+        	vm.user.internships[vm.user.internshipCount].role = null;
         	vm.user.internships[vm.user.internshipCount].recruiter = null;
+        	vm.user.internships[vm.user.internshipCount].location = null;
         	vm.user.internshipCount++;
+        	console.log(vm.user.internships);
         }
 
         function saveInternships() {

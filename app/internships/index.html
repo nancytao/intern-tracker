@@ -2,34 +2,57 @@
 <h1>My internships</h1>
 <div class="form-container">
 	<form method="post">
-		<div ng-repeat="internship in vm.user.internships">
-			<button data-toggle="modal" data-target="#internshipmodal" type="button" class="btn btn-default">Edit</button>
-			<div class="form-group">
-				<button class="btn btn-danger" ng-click="vm.deleteInternship(internship.id)">Delete Internship</button>
-			</div>
-			<div id="internshipmodal" class="modal fade" tabindex="-1" role="dialog">
-    			<div class="modal-dialog">
-        			<div class="modal-content">
-            			<div class="modal-body">
-                			<div class="form-group">
-								<label for="name">Internship Name</label>
-								<input type="text" id={{internship.id}}+"name" class="form-control" ng-model=internship["name"]>
-							</div>
-							<div class="form-group">
-								<label for="recruiter">Recruiter</label>
-								<input type="text" id={{internship.id}}+"recruiter" class="form-control" ng-model=internship["recruiter"]>
-							</div>
-            			</div>
-        			</div>
-   				</div>
+		<div ng-repeat="internship in vm.user.internships" id="{{internship.id}}modal" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+	    			<div class="modal-body">
+	        			<div class="form-group">
+							<label for="companyName">Company Name</label>
+							<input type="text" id={{internship.id}}+"companyName" class="form-control" ng-model=internship["companyName"]>
+						</div>
+						<div class="form-group">
+							<label for="role">Role</label>
+							<input type="text" id={{internship.id}}+"role" class="form-control" ng-model=internship["role"]>
+						</div>
+						<div class="form-group">
+							<label for="recruiter">Recruiter</label>
+							<input type="text" id={{internship.id}}+"recruiter" class="form-control" ng-model=internship["recruiter"]>
+						</div>
+						<div class="form-group">
+							<label for="location">Location</label>
+							<input type="text" id={{internship.id}}+"location" class="form-control" ng-model=internship["location"]>
+						</div>
+						<div class="form-group">
+	    					<button class="btn btn-primary" ng-click="vm.saveInternships()" data-dismiss="modal">Save</button>
+						</div>
+	    			</div>
+				</div>
 			</div>
 		</div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Company</th>
+					<th>Role</th>
+					<th>Recruiter</th>
+					<th>Location</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="internship in vm.user.internships">
+					<td>{{internship.companyName}}</td>
+					<td>{{internship.role}}</td>
+					<td>{{internship.recruiter}}</td>
+					<td>{{internship.location}}</td>
+					<td><button data-toggle="modal" data-target="#{{internship.id}}modal" type="button" class="btn btn-default">Edit</button></td>
+					<td><button class="btn btn-danger" ng-click="vm.deleteInternship(internship.id)">Delete Internship</button></td>
+				</tr>
+			</tbody>
+		</table>
 		<div class-"form-group">
-			<button class="btn btn-primary" ng-click="vm.addInternship()">
+			<button class="btn btn-primary" data-toggle="modal" data-target="#{{vm.user.internshipCount - 1}}modal" ng-click="vm.addInternship()" >
 			Add Internship</button>
 		</div>
-		<div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.saveInternships()">Save</button>
-        </div>
+		
     </form>
 </div>
