@@ -8,6 +8,7 @@
     function Controller($window, UserService, FlashService) {
         var vm = this;
         vm.user = null;
+        vm.saveOffers = saveOffers;
 
         initController();
 

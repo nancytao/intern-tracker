@@ -32,6 +32,8 @@
         	vm.user.internships[vm.user.internshipCount].recruiter = null;
         	vm.user.internships[vm.user.internshipCount].location = null;
         	vm.user.internships[vm.user.internshipCount].status = 'Pending';
+            vm.user.internships[vm.user.internshipCount].payrate = null;
+            vm.user.internships[vm.user.internshipCount].replyby = null;
         	vm.user.internshipCount++;
         	console.log(vm.user.internships);
         }
@@ -45,6 +47,7 @@
         			FlashService.Error(error);
         		});
         }
+
         function deleteInternship(internshipId) {
         	delete vm.user.internships[internshipId];
         	UserService.Update(vm.user)
