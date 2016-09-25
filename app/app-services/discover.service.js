@@ -10,7 +10,7 @@
 
         service.GetAll = GetAll;
         service.GetById = GetById;
-        service.GetByCompany = GetByCompany;
+        //service.GetByCompany = GetByCompany;
 
 
         return service;
@@ -21,9 +21,9 @@
         function GetById(_id) {
             return $http.get('/api/discover/' + _id).then(handleSuccess, handleError);
         }
-        function GetByCompany(username) {
-            return $http.get('/api/discover/' + username).then(handleSuccess, handleError);
-        }
+        // function GetByCompany(username) {
+        //     return $http.get('/api/discover/' + username).then(handleSuccess, handleError);
+        // }
 
         //private functions
 

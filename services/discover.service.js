@@ -10,8 +10,24 @@ db.bind('discover');
 var service = {};
 
 service.getById = getById;
+service.getAll = getAll;
 
 module.exports = service;
+
+function getAll() {
+    var deferred = Q.defer();
+
+    db.discover.find({}, function(err, com) {
+        if (err) deferred.reject(err);
+
+        if (com) {
+            deferred.resolve(_.omit(com, 'hash'));
+        } else {
+            deferred.resolve();
+        }
+    });
+    return deferred.promise();
+}
 
 function getById(_id) {
     var deferred = Q.defer();
@@ -21,7 +37,7 @@ function getById(_id) {
 
         if (com) {
             //return company
-            deferred.resolve(_.omit(user, 'hash'));
+            deferred.resolve(_.omit(com, 'hash'));
         } else {
             //company not found
             deferred.resolve();
