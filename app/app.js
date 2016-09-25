@@ -8,15 +8,15 @@
 
 	function config($stateProvider, $urlRouterProvider) {
 		//default route
-		$urlRouterProvider.otherwise("/");
+		$urlRouterProvider.otherwise("/internships");
 
 		$stateProvider
-			.state('home', {
-				url: '/',
-				templateUrl: 'home/index.html',
-				controller: 'Home.IndexController',
+			.state('calendar', {
+				url: '/calendar',
+				templateUrl: 'calendar/index.html',
+				controller: 'Calendar.IndexController',
 				controllerAs: 'vm',
-				data: { activeTab: 'home' }
+				data: { activeTab: 'calendar' }
 			})
 			.state('account', {
 				url: '/account',
