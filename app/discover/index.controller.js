@@ -5,7 +5,7 @@
         .module('app')
         .controller('Discover.IndexController', Controller);
 
-    function Controller($window, $q, $log, $timeout, UserService, FlashService) {
+    function Controller($window, $q, $log, $timeout, UserService, FlashService, DiscoverService) {
         var vm = this;
         vm.user = null;
 
@@ -52,13 +52,18 @@
         }
 
         function loadAll() {
-            var allInternships = 'Google, Microsoft, Amazon, Palantir, Fitbit, Dropbox, Quora, Pinterest';
-            return allInternships.split(/, +/g).map( function (internship) {
-                return {
-                    value : internship.toLowerCase(),
-                    display : internship
-                };
+            DiscoverService.GetAll().then(function(internships) {
+                $log.info('hello');
+                $log.info(JSON.stringify(internships));
+                return internships
             });
+            // var allInternships = 'Google, Microsoft, Amazon, Palantir, Fitbit, Dropbox, Quora, Pinterest';
+            // return allInternships.split(/, +/g).map( function (internship) {
+            //     return {
+            //         value : internship.toLowerCase(),
+            //         display : internship
+            //     };
+            // });
         }
 
         function createFilterFor(query) {

@@ -3,7 +3,7 @@
 
 	angular
 		.module('app')
-		.controller('Home.IndexController', Controller);
+		.controller('Calendar.IndexController', Controller);
 
 	function Controller(UserService) {
 		var vm = this;
