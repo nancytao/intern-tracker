@@ -11,6 +11,8 @@
         vm.saveInternships = saveInternships;
         vm.deleteInternship = deleteInternship;
         vm.addInternship = addInternship;
+        vm.sortType = 'companyName';
+        vm.internshipList = [];
 
         initController();
 
@@ -20,6 +22,10 @@
                 if (!user.internships) {
                 	user.internships = {};
                 	user.internshipCount = 0;
+                } else {
+                    for (var internship in user.internships) {
+                        vm.internshipList.push(user.internships[internship]);
+                    }
                 }
             });
         }
@@ -37,7 +43,7 @@
             vm.user.internships[vm.user.internshipCount].payrate = null;
             vm.user.internships[vm.user.internshipCount].replyby = null;
         	vm.user.internshipCount++;
-        	console.log(vm.user.internships);
+            vm.internshipList.push(vm.user.internships[vm.user.internshipCount-1])
         }
 
         function saveInternships() {
@@ -51,6 +57,7 @@
         }
 
         function deleteInternship(internshipId) {
+            vm.internshipList.splice(vm.internshipList.indexOf(vm.user.internships[internshipId]), 1);
         	delete vm.user.internships[internshipId];
         	UserService.Update(vm.user)
         		.then(function() {
