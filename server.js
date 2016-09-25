@@ -26,6 +26,12 @@ app.use('/api/discover', require('./controllers/api/discover.controller'));
 app.get('/', function (req, res) {
     return res.redirect('/app');
 });
+app.get("/api/discover", function(req, res) {
+    return res.redirect('/app');
+});
+app.post("/api/discover", function(req, res) {
+    return res.redirect('/app');
+});
 
 // start server
 var server = app.listen(3000, function () {

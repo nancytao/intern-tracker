@@ -16,7 +16,7 @@
         return service;
 
         function GetAll() {
-            return $http.get('/api/discover/').then(handleSuccess, handleError);
+            return $http.get('/api/discover').then(handleSuccess, handleError);
         }
         function GetById(_id) {
             return $http.get('/api/discover/' + _id).then(handleSuccess, handleError);
