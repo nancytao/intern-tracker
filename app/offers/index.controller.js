@@ -9,6 +9,7 @@
         var vm = this;
         vm.user = null;
         vm.saveOffers = saveOffers;
+        vm.rejectOffer = rejectOffer;
 
         initController();
 
@@ -22,21 +23,21 @@
             });
         }
 
-        function addOffer() {
-            vm.user.offers[vm.user.offerID] = {};
-            vm.user.offers[vm.user.offerID].id = vm.user.offerID;
-            vm.user.offers[vm.user.offerID].company = null;
-            vm.user.offers[vm.user.offerID].role =  null;
-            vm.user.offers[vm.user.offerID].payrate = null;
-            vm.user.offers[vm.user.offerID].location = null;
-            vm.user.offers[vm.user.offerID].replyby = null;
-            vm.user.offerID++;
-        }
-
         function saveOffers() {
             UserService.Update(vm.user)
                 .then(function() {
                     FlashService.Success('Internships updated');
+                })
+                .catch(function (err) {
+                    FlashService.Error(err);
+                });
+        }
+
+        function rejectOffer(internshipId) {
+            vm.user.internships[internshipId].status = 'Declined Offer';
+            UserService.Update(vm.user)
+                .then(function() {
+                    FlashService.Success('Offer declined');
                 })
                 .catch(function (err) {
                     FlashService.Error(err);
