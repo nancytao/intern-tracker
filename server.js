@@ -22,14 +22,9 @@ app.use('/app', require('./controllers/app.controller'));
 app.use('/api/users', require('./controllers/api/users.controller'));
 app.use('/api/discover', require('./controllers/api/discover.controller'));
 
+
 // make '/app' default route
 app.get('/', function (req, res) {
-    return res.redirect('/app');
-});
-app.get("/api/discover", function(req, res) {
-    return res.redirect('/app');
-});
-app.post("/api/discover", function(req, res) {
     return res.redirect('/app');
 });
 
