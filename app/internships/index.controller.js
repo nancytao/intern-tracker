@@ -40,8 +40,8 @@
             vm.user.internships[vm.user.internshipCount].openDate = null;
             vm.user.internships[vm.user.internshipCount].closeDate = null;
         	vm.user.internships[vm.user.internshipCount].status = 'Pending';
-            vm.user.internships[vm.user.internshipCount].payrate = null;
-            vm.user.internships[vm.user.internshipCount].replyby = null;
+            vm.user.internships[vm.user.internshipCount].payRate = null;
+            vm.user.internships[vm.user.internshipCount].replyBy = null;
         	vm.user.internshipCount++;
             vm.internshipList.push(vm.user.internships[vm.user.internshipCount-1])
         }

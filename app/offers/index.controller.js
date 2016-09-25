@@ -11,16 +11,19 @@
         vm.saveOffers = saveOffers;
         vm.rejectOffer = rejectOffer;
         vm.getLocations = getLocations;
+        vm.internshipList = [];
+        vm.sortType = 'companyName';
+
 
         initController();
 
         function initController() {
             UserService.GetCurrent().then(function(user) {
                 vm.user = user;
-                if (!user.offers) {
-                    user.offers = {};
-                    user.offerID = 0;
+                for (var internship in user.internships) {
+                    vm.internshipList.push(user.internships[internship]);
                 }
+                console.log(internshipList);
             });
         }
 
@@ -35,6 +38,7 @@
         }
 
         function rejectOffer(internshipId) {
+            vm.internshipList.splice(vm.internshipList.indexOf(vm.user.internships[internshipId]), 1);
             vm.user.internships[internshipId].status = 'Declined';
             UserService.Update(vm.user)
                 .then(function() {
