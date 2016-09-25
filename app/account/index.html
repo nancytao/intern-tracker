@@ -1,5 +1,18 @@
 <h1>My Account</h1>
 <div class="form-container">
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-content">
+            <div class="modal-body">
+              <p> Are you sure you'd like to delete your InternGrindr account? This process is irreversable.
+              </p>
+              <button class="btn btn-danger" ng-click="vm.deleteUser()" data-dismiss="modal">Delete</button>
+              <button class="btn btn-primary" data-dismiss="modal">No, I'd like to keep grindring</button>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
     <form method="post">
         <div class="form-group">
             <label for="firstName">First name</label>
@@ -15,7 +28,7 @@
        	</div>
        	<div class="form-group">
        		<button class="btn btn-primary" ng-click="vm.saveUser()">Save</button>
-       		<button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button>
+          <button data-toggle="modal" data-target="#deleteModal" type="button" class="btn btn-danger">Delete</button>
         </div>
     </form>
 </div>
