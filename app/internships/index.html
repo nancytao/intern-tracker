@@ -2,6 +2,12 @@
 <h1>My Internships</h1>
 <div class="form-container">
 	<form method="post">
+		<div class-"form-group">
+			<button class="btn btn-primary" data-toggle="modal" data-target="#{{vm.user.internshipCount - 1}}modal" ng-click="vm.addInternship()" >
+			Add Internship</button>
+			<br>
+			<br>
+		</div>
 		<div ng-repeat="internship in vm.user.internships" id="{{internship.id}}modal" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -57,10 +63,5 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class-"form-group">
-			<button class="btn btn-primary" data-toggle="modal" data-target="#{{vm.user.internshipCount - 1}}modal" ng-click="vm.addInternship()" >
-			Add Internship</button>
-		</div>
-
     </form>
 </div>
