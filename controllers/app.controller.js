@@ -10,7 +10,7 @@ router.use('/', function (req, res, next) {
 	next();
 });
 
-//make JWT token available to angular app
+//make JWT token great again
 router.get('/token', function(req, res) {
 	res.send(req.session.token);
 });
